@@ -1,0 +1,20 @@
+# This allows you to set which of your scripts to run and in what order when
+# hooks are triggered.
+hooks:
+  start:
+    - host-script: update.sh
+    - host-script: update-http-relation.sh
+  config-changed:
+    - host-script: update.sh
+    - host-script: update-http-relation.sh
+
+  # Website relation updates
+  website-relation-changed:
+    - host-script: update-http-relation.sh
+  website-relation-broken:
+    - host-script: update-http-relation.sh
+
+  # Charm upgrade
+  upgrade-charm:
+    - host-script: update.sh
+    - host-script: update-http-relation.sh

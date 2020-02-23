@@ -1,0 +1,6 @@
+options:
+  port:
+    type: string
+    default: RANDOM
+    description: The port to bind on the host or RANDOM to pick a random port
+
